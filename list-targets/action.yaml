@@ -41,7 +41,7 @@ runs:
 
     - run: go install github.com/hashicorp/terraform-config-inspect@latest
       shell: bash
-    - uses: suzuki-shunsuke/tfaction/list-working-dirs@main
+    - uses: exoego/tfaction/list-working-dirs@update-module-use-site-2
       id: list-working-directory-configs
     - uses: exoego/tfaction/get-global-config@update-module-use-site-2
       id: global-config
@@ -59,7 +59,7 @@ runs:
         pull_request: ${{ env.CI_INFO_TEMP_DIR }}/pr.json
         config_files: ${{ steps.list-working-directory-configs.outputs.file }}
         module_callers: ${{ steps.list-module-callers.outputs.file }}
-    - uses: suzuki-shunsuke/tfaction/list-changed-modules@main
+    - uses: exoego/tfaction/list-changed-modules@update-module-use-site-2
       id: list-modules
       with:
         changed_files: ${{ env.CI_INFO_TEMP_DIR }}/pr_all_filenames.txt

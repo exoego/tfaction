@@ -14,7 +14,7 @@ runs:
   steps:
     - uses: suzuki-shunsuke/tfaction/exoego/tfaction/get-global-config@update-module-use-site-2
       id: global-config
-    - uses: suzuki-shunsuke/tfaction/get-target-config@main
+    - uses: exoego/tfaction/get-target-config@update-module-use-site-2
       id: target-config
 
     - run: bash ${{ github.action_path }}/main.sh
