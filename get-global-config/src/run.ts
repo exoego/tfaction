@@ -66,7 +66,7 @@ export const main = (config: lib.Config, input: Input): Result => {
       config?.update_related_pull_requests?.enabled ?? true
     ),
     disable_update_local_path_module_caller: !(
-        config?.update_local_path_module_caller?.enabled ?? true
+      config?.update_local_path_module_caller?.enabled ?? false
     ),
     aqua_update_checksum_enabled:
       config?.aqua?.update_checksum?.enabled ?? false,
