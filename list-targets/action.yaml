@@ -43,15 +43,15 @@ runs:
       shell: bash
     - uses: suzuki-shunsuke/tfaction/list-working-dirs@main
       id: list-working-directory-configs
-    - uses: suzuki-shunsuke/tfaction/get-global-config@main
+    - uses: exoego/tfaction/get-global-config@update-module-use-site-2
       id: global-config
-    - uses: suzuki-shunsuke/list-module-callers@main
+    - uses: exoego/tfaction/list-module-callers@update-module-use-site-2
       id: list-module-callers
       if: "!fromJSON(steps.global-config.outputs.disable_update_local_path_module_caller)"
       with:
         config_files: ${{ steps.list-working-directory-configs.outputs.file }}
         module_files: ${{ steps.list-working-directory-configs.outputs.module_file }}
-    - uses: suzuki-shunsuke/tfaction/list-targets-with-changed-files@main
+    - uses: exoego/tfaction/list-targets-with-changed-files@update-module-use-site-2
       id: list-targets
       with:
         changed_files: ${{ env.CI_INFO_TEMP_DIR }}/pr_all_filenames.txt
